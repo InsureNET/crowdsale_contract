@@ -7,7 +7,11 @@ const flux_token_crowdsale = artifacts.require('FluxTokenCrowdsale');
 const flux_token = artifacts.require('FluxToken');
 
 // Accounts represent array of accounts created by ganache
-contract('flux_token_crowdsale', function(accounts) {
+// Since its required an default account to deploy the contract
+// and a wallet address to store received funds
+// _ denotes default account and wallet holds address of 
+// second account which is used by Crowdsale contract
+contract('flux_token_crowdsale', function([_, wallet]) {
 
   beforeEach(async function() {
     // Token attribues for constructor
@@ -21,9 +25,9 @@ contract('flux_token_crowdsale', function(accounts) {
     
     // Crowdsale contract attributes for contructor
     this.rate = '';
-    this.wallet = '';
-    this.token = '';
+    this.wallet = wallet;
     // Deploying new instance of Crowdsale contract
+    // Passing deployed tokens as third parameter
     this.token = await flux_token_crowdsale.new(this.rate, 
                                                 this.wallet, 
                                                 this.token);
