@@ -1,0 +1,11 @@
+# Deploying token instance in truffle console
+TOKEN_NAME.deployed().then((t) => {token = t})
+
+# Viewing token/contract address
+token.address
+
+# Accessing any public/external function
+token.FUNCTION_NAME()
+
+# To view integer values
+token.decimals().then((v) => {console.log(v.toNumber() ) } )
