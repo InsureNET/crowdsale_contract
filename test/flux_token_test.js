@@ -12,7 +12,8 @@ contract('flux_token', accounts => {
     // Passing arguments while deploying contract 
     this.token = await flux_token.new('Flux Token', 'FT', 18);
   });
-
+  
+  /* Begin Assertion */
   describe('token_details', function() {     
     /* Testing name of token */
     it('testing_for_correct_name', async function() { 

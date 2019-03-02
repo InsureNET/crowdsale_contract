@@ -32,9 +32,32 @@ contract('flux_token_crowdsale', function([_, wallet]) {
     this.wallet = wallet;
     // Deploying new instance of Crowdsale contract
     // Passing deployed tokens as third parameter
-    this.token = await flux_token_crowdsale.new(this.rate, 
+    this.crowdsale = await flux_token_crowdsale.new(this.rate, 
                                                 this.wallet, 
-                                                this.token);
+                                                this.token.address);
+  });
+
+  /* Begin Assertion */
+  describe('crowdsale_details', function() { 
+
+    /* Testing rate of Crowdsale contract */
+    it('testing_for_rate', async function() { 
+      const rate = await this.crowdsale.rate();
+      assert.equal(rate, 500);
+    });
+
+    /* Testing token of Crowdsale contract */
+    it('tracking_the_token', async function() { 
+      const token = await this.crowdsale.token();
+      assert.equal(token, this.token.address);
+    });
+
+    /* Testing wallet of Crowdsale contract */
+    it('testing_the_wallet_address', async function() {
+      const wallet_address = await this.crowdsale.wallet();
+      assert.equal(wallet_address, this.wallet);
+    });
+
   });
      
 
