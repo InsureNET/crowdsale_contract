@@ -3,13 +3,15 @@ pragma solidity ^0.5.0;
 import "/home/beach/node_modules/openzeppelin-solidity/contracts/crowdsale/Crowdsale.sol";
 import "/home/beach/node_modules/openzeppelin-solidity/contracts/crowdsale/emission/MintedCrowdsale.sol";
 import "/home/beach/node_modules/openzeppelin-solidity/contracts/crowdsale/validation/CappedCrowdsale.sol";
+import "/home/beach/node_modules/openzeppelin-solidity/contracts/crowdsale/validation/TimedCrowdsale.sol";
 
-contract FluxTokenCrowdsale is Crowdsale, MintedCrowdsale, CappedCrowdsale {
+contract FluxTokenCrowdsale is Crowdsale, MintedCrowdsale, CappedCrowdsale, TimedCrowdsale {
   // Crowdsale contructor
   // Capped crowdsale constructor
-  constructor(uint256 rate, address payable wallet, IERC20 token, uint256 cap) 
+  constructor(uint256 rate, address payable wallet, IERC20 token, uint256 cap, uint256 openingTime, uint256 closingTime) 
     Crowdsale(rate, wallet, token)
-    CappedCrowdsale(cap)    
+    CappedCrowdsale(cap)
+    TimedCrowdsale(openingTime, closingTime)    
     public { }
 
 
