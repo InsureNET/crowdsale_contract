@@ -47,6 +47,8 @@ contract('flux_token_crowdsale', function([_, wallet, investor_1, investor_2]) {
     
   });
 
+
+
   /* Begin Assertion One */
   describe('crowdsale_details', function() { 
 
@@ -96,6 +98,7 @@ contract('flux_token_crowdsale', function([_, wallet, investor_1, investor_2]) {
   });
 
 
+
   /* Begin Assertion Three */
   describe('Testing_Minted_Crowdsale_functionality', function() { 
   
@@ -113,7 +116,15 @@ contract('flux_token_crowdsale', function([_, wallet, investor_1, investor_2]) {
 
       assert.isTrue(final_total_supply > initial_total_supply);
     });
-  });   
+  });
+
+
+
+  /* Begin Assertion Four */
+  describe('Testing_hard_cap', function() { 
+  
+    
+  });    
      
 
 });
