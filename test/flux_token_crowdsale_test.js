@@ -3,6 +3,7 @@
 
 /* BDD/TDD assertion library */
 require('chai')
+  .use(require('chai-as-promised'))
   .should()
 
 /* Importing contracts */
@@ -72,14 +73,25 @@ contract('flux_token_crowdsale', function([_, wallet, investor_1, investor_2]) {
   describe('checking_payment_return_token', function() { 
   
     /* Testing sending ether and getting token */
-    it('getting_ether', async function() {
+    it('sending_ether_getting_token', async function() {
       // Convert value passed in to equivalent wei and finally convert to big number
       const value = web3.utils.toBN(web3.utils.toWei('5', 'ether'));
       // Now the FluxTokenCrowdsale contract try to mint the requested token
       // This contract can only mint the token and sent to beneficiary if it has ownership permission
-      // This permission is granted above within beforeEach function
-      // await this.crowdsale.sendTransaction({value: value, from: investor_1});    
+      // This permission is granted within beforeEach function
+      await this.crowdsale.sendTransaction({value: value, from: investor_1});    
     });
+
+   /* Testing the purchase of token on behalf of someone else */
+   it('buying_token_on_behalf_of_someone_else_address', async function() { 
+     const value = web3.utils.toBN(web3.utils.toWei('5', 'ether'));
+     // Buying token on the given address behalf
+     // This account is not buying token on its own
+     const buyer = investor_2;
+
+     await this.crowdsale.buyTokens (investor_1, {value: value, from: buyer}).should_be_fulfilled;
+   });
+
   });
      
 
