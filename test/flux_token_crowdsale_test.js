@@ -1,3 +1,6 @@
+/* Importing manual helper file as a Export using babel library */
+import ether_to_wei from '../helper/ether_to_wei';
+
 /* BDD/TDD assertion library */
 require('chai')
   .should()
@@ -11,7 +14,8 @@ const flux_token = artifacts.require('FluxToken');
 // and a wallet address to store received funds
 // _ denotes default account and wallet holds address of 
 // second account which is used by Crowdsale contract
-contract('flux_token_crowdsale', function([_, wallet]) {
+// This array contatin all available accounts
+contract('flux_token_crowdsale', function([_, wallet, investor_1, investor_2]) {
 
   beforeEach(async function() {
     // Token attribues for constructor
@@ -37,7 +41,7 @@ contract('flux_token_crowdsale', function([_, wallet]) {
                                                 this.token.address);
   });
 
-  /* Begin Assertion */
+  /* Begin Assertion One */
   describe('crowdsale_details', function() { 
 
     /* Testing rate of Crowdsale contract */
@@ -57,7 +61,15 @@ contract('flux_token_crowdsale', function([_, wallet]) {
       const wallet_address = await this.crowdsale.wallet();
       assert.equal(wallet_address, this.wallet);
     });
+  });
 
+  /* Begin Assertion Two */
+  describe('checking_payment_return_token', function() { 
+  
+    /* Testing sending ether and getting token */
+    it('getting_ether', async function() { 
+      
+    });
   });
      
 

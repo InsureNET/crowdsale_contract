@@ -24,6 +24,12 @@
 // const fs = require('fs');
 // const mnemonic = fs.readFileSync(".secret").toString().trim();
 
+/* This config act as an entry point of project  Importing module*/
+// Babel is used to convert ECMAScript 2015+ code into a 
+// backwards compatible version of JavaScrip
+require('babel-register');
+require('babel-polyfill');
+
 module.exports = {
   /**
    * Networks define how you connect to your ethereum client and let you set the
