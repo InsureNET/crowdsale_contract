@@ -35,11 +35,17 @@ contract('flux_token_crowdsale', function([_, wallet, investor_1, investor_2]) {
     // 500 tokens are received for one ether 
     this.rate = 500;
     this.wallet = wallet;
+    // Hardcap value
+    // one_token == 10^18
+    // number_of_token = 100
+    // total token = one_token * number_of_tokens 
+    this.cap = web3.utils.toBN(web3.utils.toWei('100', 'ether'));
     // Deploying new instance of Crowdsale contract
     // Passing deployed tokens as third parameter
     this.crowdsale = await flux_token_crowdsale.new(this.rate, 
                                                 this.wallet, 
-                                                this.token.address);
+                                                this.token.address,
+                                                this.cap);
 
     // Setting permission for FluxTokenCrowdsale contract to mint token
     // This addMinter() function exist within MinterRole.sol file
@@ -123,7 +129,12 @@ contract('flux_token_crowdsale', function([_, wallet, investor_1, investor_2]) {
   /* Begin Assertion Four */
   describe('Testing_hard_cap', function() { 
   
-    
+    /* Testing hardcap vaue */
+    it('testing_hard_cap', async function() { 
+      const hard_cap = await this.crowdsale.cap();
+      
+      assert.equal(this.cap, hard_cap);
+    });      
   });    
      
 
