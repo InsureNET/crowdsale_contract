@@ -1,5 +1,5 @@
 /* Importing manual helper file as a Export using babel library */
-import ether_to_wei from '../helper/ether_to_wei';
+// import ether_to_wei from '../helper/ether_to_wei';
 
 /* BDD/TDD assertion library */
 require('chai')
@@ -67,8 +67,9 @@ contract('flux_token_crowdsale', function([_, wallet, investor_1, investor_2]) {
   describe('checking_payment_return_token', function() { 
   
     /* Testing sending ether and getting token */
-    it('getting_ether', async function() { 
-      
+    it('getting_ether', async function() {
+      const value = web3.utils.toBN(web3.utils.toWei('1', 'ether'));
+      await this.crowdsale.sendTransaction({value: value, from: investor_1});    
     });
   });
      
