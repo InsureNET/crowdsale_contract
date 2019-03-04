@@ -4,6 +4,7 @@ pragma solidity ^0.5.0;
 import "/home/beach/node_modules/openzeppelin-solidity/contracts/token/ERC20/ERC20Detailed.sol";
 import "/home/beach/node_modules/openzeppelin-solidity/contracts/token/ERC20/ERC20Mintable.sol";
 import "/home/beach/node_modules/openzeppelin-solidity/contracts/token/ERC20/ERC20Pausable.sol";
+import "/home/beach/node_modules/openzeppelin-solidity/contracts/ownership/Ownable.sol";
 
 contract FluxToken is ERC20Mintable, ERC20Pausable, ERC20Detailed {
   constructor(string memory name, string memory symbol, uint8 decimals) 
