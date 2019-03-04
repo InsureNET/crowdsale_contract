@@ -20,10 +20,8 @@ contract FluxTokenCrowdsale is Crowdsale, MintedCrowdsale, CappedCrowdsale {
    * This Limit is set not based on per transaction basics but
    * on total transaction made by a individual account 
    */
-   uint256 public investor_min_cap = 2000000000000000         // 0.002 * 10^18  --> Expressed in Wei
-   uint256 public investor_max_cap = 30000000000000000000     // 30 * 10^18
-   // Mapping to keep track of which account contribute howmuch wei
-   mapping(address => uint256) public contributions;                                                                                                                                                                                       
+   uint256 public investor_min_cap = 2000000000000000;         // 0.002 * 10^18  --> Expressed in Wei
+   uint256 public investor_max_cap = 30000000000000000000;     // 30 * 10^18
     
   /* Extending _perValidatePurchase() function to revoke transaction if invesment amount 
    * is out of min and max cap
@@ -32,10 +30,7 @@ contract FluxTokenCrowdsale is Crowdsale, MintedCrowdsale, CappedCrowdsale {
     super._preValidatePurchase(beneficiary, weiAmount);
 
     // Custom code begins
-    uint256 total_contibutions = contributions[beneficiary].add(weiAmount);
-    require(weiAmount >= investor_min_cap && total_contibutions <= investor_max_cap);
-    // Updating mapping variable
-    contributions[beneficiary] = total_contributions; 
-  }        
+    require(weiAmount >= investor_min_cap);
+  }
   
 }

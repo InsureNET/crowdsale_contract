@@ -40,6 +40,7 @@ contract('flux_token_crowdsale', function([_, wallet, investor_1, investor_2]) {
     // number_of_token = 100
     // total token = one_token * number_of_tokens 
     this.cap = web3.utils.toBN(web3.utils.toWei('100', 'ether'));
+    this.investor_min_cap = 200000000000000;
     // Deploying new instance of Crowdsale contract
     // Passing deployed tokens as third parameter
     this.crowdsale = await flux_token_crowdsale.new(this.rate, 
@@ -127,13 +128,13 @@ contract('flux_token_crowdsale', function([_, wallet, investor_1, investor_2]) {
 
 
   /* Begin Assertion Four */
-  describe('Testing_hard_cap', function() { 
+  describe('Testing_minimum_invesment_amount', function() { 
   
-    /* Testing hardcap vaue */
-    it('testing_hard_cap', async function() { 
-      const hard_cap = await this.crowdsale.cap();
+    /* Testing min invesment value */
+    it('testing_invesment_minimum', async function() { 
+      const value = this.investor_min_cap - 1;
       
-      assert.equal(this.cap, hard_cap);
+      await this.crowdsale.buyTokens(investor_1, {value: value, from: investor_2}).should.be.rejectedWith("revert"); 
     });      
   });    
      
