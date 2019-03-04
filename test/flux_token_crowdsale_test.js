@@ -69,6 +69,8 @@ contract('flux_token_crowdsale', function([_, wallet, investor_1, investor_2]) {
     });
   });
 
+
+
   /* Begin Assertion Two */
   describe('checking_payment_return_token', function() { 
   
@@ -89,10 +91,29 @@ contract('flux_token_crowdsale', function([_, wallet, investor_1, investor_2]) {
      // This account is not buying token on its own
      const buyer = investor_2;
 
-     await this.crowdsale.buyTokens (investor_1, {value: value, from: buyer}).should_be_fulfilled;
+     await this.crowdsale.buyTokens(investor_1, {value: value, from: buyer}).should_be_fulfilled;
    });
-
   });
+
+
+  /* Begin Assertion Three */
+  describe('Testing_Minted_Crowdsale_functionality', function() { 
+  
+    /* Testing rise in totalSupply after minting token */
+    it('testing_increase_in_total_supply_after_minting', async function() { 
+      // Getting initial totalSupply value
+      const initial_total_supply = await this.token.totalSupply();
+
+      // Makeing a transaction and getting token
+      const value = web3.utils.toBN(web3.utils.toWei('5', 'ether'));
+      await this.crowdsale.sendTransaction({value: value, from: investor_1});
+
+      // Getting final totalSuply value
+      const final_total_supply = await this.token.totalSupply();
+
+      assert.isTrue(final_total_supply > initial_total_supply);
+    });
+  });   
      
 
 });
