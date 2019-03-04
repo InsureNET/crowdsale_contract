@@ -39,6 +39,10 @@ contract('flux_token_crowdsale', function([_, wallet, investor_1, investor_2]) {
     this.crowdsale = await flux_token_crowdsale.new(this.rate, 
                                                 this.wallet, 
                                                 this.token.address);
+
+    // Setting permission for FluxTokenCrowdsale contract to mint token
+    await this.token.transferOwnership(this.crowdsale.address);
+    
   });
 
   /* Begin Assertion One */
@@ -68,7 +72,11 @@ contract('flux_token_crowdsale', function([_, wallet, investor_1, investor_2]) {
   
     /* Testing sending ether and getting token */
     it('getting_ether', async function() {
+      // Convert value passed in to equivalent wei and finally convert to big number
       const value = web3.utils.toBN(web3.utils.toWei('1', 'ether'));
+      // Now the FluxTokenCrowdsale contract try to mint the requested token
+      // This contract can only mint the token and sent to beneficiary if it has ownership permission
+      // This permission is granted above within beforeEach function
       await this.crowdsale.sendTransaction({value: value, from: investor_1});    
     });
   });
