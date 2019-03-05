@@ -1,10 +1,10 @@
 pragma solidity ^0.5.0;
 
-import "/home/beach/node_modules/openzeppelin-solidity/contracts/crowdsale/Crowdsale.sol";
-import "/home/beach/node_modules/openzeppelin-solidity/contracts/crowdsale/emission/MintedCrowdsale.sol";
-import "/home/beach/node_modules/openzeppelin-solidity/contracts/crowdsale/validation/CappedCrowdsale.sol";
-import "/home/beach/node_modules/openzeppelin-solidity/contracts/crowdsale/validation/TimedCrowdsale.sol";
-import "/home/beach/node_modules/openzeppelin-solidity/contracts/ownership/Ownable.sol";
+import "../openzeppelin-solidity/contracts/crowdsale/Crowdsale.sol";
+import "../openzeppelin-solidity/contracts/crowdsale/emission/MintedCrowdsale.sol";
+import "../openzeppelin-solidity/contracts/crowdsale/validation/CappedCrowdsale.sol";
+import "../openzeppelin-solidity/contracts/crowdsale/validation/TimedCrowdsale.sol";
+import "../openzeppelin-solidity/contracts/ownership/Ownable.sol";
 
 contract FluxTokenCrowdsale is Crowdsale, MintedCrowdsale, CappedCrowdsale, Ownable {
   // Crowdsale contructor
