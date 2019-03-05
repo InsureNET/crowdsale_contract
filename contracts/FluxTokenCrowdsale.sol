@@ -24,7 +24,8 @@ contract FluxTokenCrowdsale is Crowdsale, MintedCrowdsale, CappedCrowdsale, Owna
 
    /* Only allow admin to chage the crowdsale stages
     * This change in stage is initiated manually by admin 
-    * Cause I wanted to do it in my time
+    * Rate is fixed randomly
+    * DONT FORGET TO CHANGE RATE WHILE PRODUCTION DEPLOYMENT *MAN*
     */
    function setCrowdsaleStage(uint stages) public onlyOwner {
      // Presale

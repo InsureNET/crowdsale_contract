@@ -31,8 +31,8 @@ Technical Paper: http://www.slothee.io/documents/Slothee_Technical_Paper.pdf
 **Factors Incorporated**
 
 1. Capping limit
-2. Timed limit
-3. Whitelist agent (Feature build in progress...)
+2. Timing barrier
+3. Whitelist agent  (Feature build in progress...)
 4. Refundable operation (Feature build in progress...)
 5. Crowdsale phases
 6. Finalizing rationale
@@ -44,7 +44,7 @@ Technical Paper: http://www.slothee.io/documents/Slothee_Technical_Paper.pdf
 **Crowdsale Contract Information**
 
 1. Hard cap: 19 000 000 USD
-2. Soft cap: 
+2. Soft cap: 4 000 000 USD
 3. Value per Token: 0.038 USD
 4. Token issued for sale: 500 000 000 SLT
 

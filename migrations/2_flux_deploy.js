@@ -1,5 +1,5 @@
 const flux_token = artifacts.require("FluxToken");
-  /* Token Parameter */ 
+  /* Dummy Token Parameter */ 
   const name = "Flux Token";
   const symbol = "FT";
   const decimals = 18;
