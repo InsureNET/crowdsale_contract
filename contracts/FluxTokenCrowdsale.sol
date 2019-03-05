@@ -3,9 +3,10 @@ pragma solidity ^0.5.0;
 import "../openzeppelin-solidity/contracts/crowdsale/Crowdsale.sol";
 import "../openzeppelin-solidity/contracts/crowdsale/emission/MintedCrowdsale.sol";
 import "../openzeppelin-solidity/contracts/crowdsale/validation/CappedCrowdsale.sol";
-import "../openzeppelin-solidity/contracts/crowdsale/validation/TimedCrowdsale.sol";
 import "../openzeppelin-solidity/contracts/ownership/Ownable.sol";
 
+// Do not alter the order of the imported extensions
+// Got no idea why Linerization error pops out for changing order
 contract FluxTokenCrowdsale is Crowdsale, MintedCrowdsale, CappedCrowdsale, Ownable {
   // Crowdsale contructor
   // Capped crowdsale constructor
@@ -22,8 +23,9 @@ contract FluxTokenCrowdsale is Crowdsale, MintedCrowdsale, CappedCrowdsale, Owna
    CrowdsaleStages public stage = CrowdsaleStages.PreSale;
 
    /* Only allow admin to chage the crowdsale stages
-    * This change in stage is initiated manually by admin
-    */   
+    * This change in stage is initiated manually by admin 
+    * Cause I wanted to do it in my time
+    */
    function setCrowdsaleStage(uint stages) public onlyOwner {
      // Presale
      if (uint(CrowdsaleStages.PreSale) == stages) {
@@ -71,7 +73,10 @@ contract FluxTokenCrowdsale is Crowdsale, MintedCrowdsale, CappedCrowdsale, Owna
     super._preValidatePurchase(beneficiary, weiAmount);
 
     // Custom code begins
+    // Initial  limit for buying tokens is set
     require(weiAmount >= investor_min_cap);
+    // Shit this error always comes while applying maximum investor limit
+    // PENDING CODE 
   }
   
 }
