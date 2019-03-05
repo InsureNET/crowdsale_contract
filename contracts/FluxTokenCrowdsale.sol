@@ -4,8 +4,9 @@ import "/home/beach/node_modules/openzeppelin-solidity/contracts/crowdsale/Crowd
 import "/home/beach/node_modules/openzeppelin-solidity/contracts/crowdsale/emission/MintedCrowdsale.sol";
 import "/home/beach/node_modules/openzeppelin-solidity/contracts/crowdsale/validation/CappedCrowdsale.sol";
 import "/home/beach/node_modules/openzeppelin-solidity/contracts/crowdsale/validation/TimedCrowdsale.sol";
+import "/home/beach/node_modules/openzeppelin-solidity/contracts/ownership/Ownable.sol";
 
-contract FluxTokenCrowdsale is Crowdsale, MintedCrowdsale, CappedCrowdsale {
+contract FluxTokenCrowdsale is Crowdsale, MintedCrowdsale, CappedCrowdsale, Ownable {
   // Crowdsale contructor
   // Capped crowdsale constructor
   constructor(uint256 rate, address payable wallet, IERC20 token, uint256 cap) 
@@ -14,6 +15,26 @@ contract FluxTokenCrowdsale is Crowdsale, MintedCrowdsale, CappedCrowdsale {
     public { }
 
 
+   /* Crowdsale stages */
+   enum CrowdsaleStages { PreICO, MainICO }
+   
+   // Crowdsale stage
+   CrowdsaleStages public stage = CrowdsaleStages.PreICO;
+
+   /* Only allow admin to chage the crowdsale stages */
+   function setCrowdsaleStage(uint stages) public onlyOwner {
+     if (uint(CrowdsaleStages.PreICO) == stages) {
+       stage = CrowdsaleStages.PreICO;
+       setRate(500);
+     }
+     else if (uint(CrowdsaleStages.MainICO) == stages) {
+       stage = CrowdsaleStages.MainICO;
+       setRate(250);
+     }
+  }
+
+
+  
   /* Setting max and min invesment an investor can contribute
    * Maximum Contribution Limit = 30 Ether
    * Minimum Contribution Limit = 0.002 Ether

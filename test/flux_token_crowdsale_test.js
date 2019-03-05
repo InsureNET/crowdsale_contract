@@ -35,12 +35,19 @@ contract('flux_token_crowdsale', function([_, wallet, investor_1, investor_2]) {
     // 500 tokens are received for one ether 
     this.rate = 500;
     this.wallet = wallet;
+    
     // Hardcap value
     // one_token == 10^18
     // number_of_token = 100
     // total token = one_token * number_of_tokens 
     this.cap = web3.utils.toBN(web3.utils.toWei('100', 'ether'));
+    
+    // Investor minimum ether to buy token
     this.investor_min_cap = 200000000000000;
+
+    // ICO stages
+    this.PreICO = 0;
+    this.MainICO = 1;
     
     // Getting the time of last mined block in seconds
     // this.latest_block = web3.eth.getBlock("latest").timestamp;
@@ -139,8 +146,45 @@ contract('flux_token_crowdsale', function([_, wallet, investor_1, investor_2]) {
       
       await this.crowdsale.buyTokens(investor_1, {value: value, from: investor_2}).should.be.rejectedWith("revert"); 
     });      
-  });   
+  });  
 
 
+  /* Begin Assertion Five */
+  describe('testing_crowdsale_stages', function() { 
+    /* Testing default stage */
+    it('testing_default_stage', async function() { 
+      const stage = await this.crowdsale.stage();
+
+      assert.equal(stage, this.PreICO);
+    });
+
+    /* Testing inital rate of crowdsale stage */
+    it('testing_rate_of_default_ico', async function() { 
+      const value = await this.crowdsale.rate();
+
+      assert.equal(value, 500);
+    });
+
+    /* Testing admin can change ICO stages */
+    it('testing_admin_can_alter_ico_stage', async function() { 
+      await this.crowdsale.setCrowdsaleStage(this.MainICO, {from: _});
+      const stage = await this.crowdsale.stage();
+      
+      assert.equal(stage, this.MainICO);
+    });
+
+    /* Testing change in rate after altering ico stage */
+    it('testing_change_in_rate', async function() {
+      await this.crowdsale.setCrowdsaleStage(this.MainICO, {from: _});
+      const value = await this.crowdsale.rate();
+
+      assert.equal(value, 250);
+    });
+
+    /* Testing non-admin can change ICO stages or not */
+    it('testing_non_admin_alter_ICO_stages', async function() { 
+      await this.crowdsale.setCrowdsaleStage(this.MainICO, {from: investor_1}).should.be.rejectedWith("revert");
+    });
+  });
 
 });
