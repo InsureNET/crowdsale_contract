@@ -97,7 +97,7 @@ contract Crowdsale is ReentrancyGuard {
     // Manual Code Structure
     // Why the HEll  THIS LIBRARY FILE IS EDITED
     // Function to alter the rate based on the crowdsale stages
-    function setRate(uint256 newRate) public internal {
+    function setRate(uint256 newRate) internal {
        _rate = newRate;
     }
 

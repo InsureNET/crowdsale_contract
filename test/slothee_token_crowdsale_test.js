@@ -54,6 +54,7 @@ contract('slothee_token_crowdsale', function([_, wallet, investor_1, investor_2]
     
     // Getting the time of last mined block in seconds
     // this.latest_block = web3.eth.getBlock("latest").timestamp;
+
     // Deploying new instance of Crowdsale contract
     // Passing deployed tokens as third parameter
     this.crowdsale = await slothee_token_crowdsale.new(this.rate, 
