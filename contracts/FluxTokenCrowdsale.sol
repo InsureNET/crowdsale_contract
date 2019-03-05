@@ -5,13 +5,12 @@ import "/home/beach/node_modules/openzeppelin-solidity/contracts/crowdsale/emiss
 import "/home/beach/node_modules/openzeppelin-solidity/contracts/crowdsale/validation/CappedCrowdsale.sol";
 import "/home/beach/node_modules/openzeppelin-solidity/contracts/crowdsale/validation/TimedCrowdsale.sol";
 
-contract FluxTokenCrowdsale is Crowdsale, MintedCrowdsale, CappedCrowdsale, TimedCrowdsale {
+contract FluxTokenCrowdsale is Crowdsale, MintedCrowdsale, CappedCrowdsale {
   // Crowdsale contructor
   // Capped crowdsale constructor
-  constructor(uint256 rate, address payable wallet, IERC20 token, uint256 cap, uint256 openingTime, uint256 closingTime) 
+  constructor(uint256 rate, address payable wallet, IERC20 token, uint256 cap) 
     Crowdsale(rate, wallet, token)
     CappedCrowdsale(cap)
-    TimedCrowdsale(openingTime, closingTime)    
     public { }
 
 

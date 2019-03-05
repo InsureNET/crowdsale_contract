@@ -41,6 +41,9 @@ contract('flux_token_crowdsale', function([_, wallet, investor_1, investor_2]) {
     // total token = one_token * number_of_tokens 
     this.cap = web3.utils.toBN(web3.utils.toWei('100', 'ether'));
     this.investor_min_cap = 200000000000000;
+    
+    // Getting the time of last mined block in seconds
+    // this.latest_block = web3.eth.getBlock("latest").timestamp;
     // Deploying new instance of Crowdsale contract
     // Passing deployed tokens as third parameter
     this.crowdsale = await flux_token_crowdsale.new(this.rate, 
@@ -136,7 +139,8 @@ contract('flux_token_crowdsale', function([_, wallet, investor_1, investor_2]) {
       
       await this.crowdsale.buyTokens(investor_1, {value: value, from: investor_2}).should.be.rejectedWith("revert"); 
     });      
-  });    
-     
+  });   
+
+
 
 });
