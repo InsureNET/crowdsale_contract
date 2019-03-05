@@ -16,20 +16,37 @@ contract FluxTokenCrowdsale is Crowdsale, MintedCrowdsale, CappedCrowdsale, Owna
 
 
    /* Crowdsale stages */
-   enum CrowdsaleStages { PreICO, MainICO }
+   enum CrowdsaleStages { PreSale, StageOne, StageTwo, StageThree, StageFour }
    
    // Crowdsale stage
-   CrowdsaleStages public stage = CrowdsaleStages.PreICO;
+   CrowdsaleStages public stage = CrowdsaleStages.PreSale;
 
    /* Only allow admin to chage the crowdsale stages */
    function setCrowdsaleStage(uint stages) public onlyOwner {
-     if (uint(CrowdsaleStages.PreICO) == stages) {
-       stage = CrowdsaleStages.PreICO;
-       setRate(500);
+     // Presale
+     if (uint(CrowdsaleStages.PreSale) == stages) {
+       stage = CrowdsaleStages.PreSale;
+       setRate(4105);
      }
-     else if (uint(CrowdsaleStages.MainICO) == stages) {
-       stage = CrowdsaleStages.MainICO;
-       setRate(250);
+     // Stage One
+     else if (uint(CrowdsaleStages.StageOne) == stages) {
+       stage = CrowdsaleStages.StageOne;
+       setRate(3934);
+     }
+     // Stage Two
+     else if (uint(CrowdsaleStages.StageTwo) == stages) {
+       stage = CrowdsaleStages.StageTwo;
+       setRate(3763);
+     }
+     // Satge Three
+     else if (uint(CrowdsaleStages.StageThree) == stages) {
+       stage = CrowdsaleStages.StageThree;
+       setRate(3592);
+     }
+     // Stage Four
+     else if (uint(CrowdsaleStages.StageFour) == stages) {
+       stage = CrowdsaleStages.StageFour;
+       setRate(3421);
      }
   }
 

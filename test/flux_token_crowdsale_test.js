@@ -33,7 +33,7 @@ contract('flux_token_crowdsale', function([_, wallet, investor_1, investor_2]) {
     // Crowdsale contract attributes for contructor
     // rate - denots how much token is received for 1Ether
     // 500 tokens are received for one ether 
-    this.rate = 500;
+    this.rate = 4150;
     this.wallet = wallet;
     
     // Hardcap value
@@ -46,8 +46,11 @@ contract('flux_token_crowdsale', function([_, wallet, investor_1, investor_2]) {
     this.investor_min_cap = 200000000000000;
 
     // ICO stages
-    this.PreICO = 0;
-    this.MainICO = 1;
+    this.PreSale = 0;
+    this.StageOne = 1;
+    this.StageTwo = 2;
+    this.StageThree = 3;
+    this.StageFour = 4;
     
     // Getting the time of last mined block in seconds
     // this.latest_block = web3.eth.getBlock("latest").timestamp;
@@ -72,7 +75,7 @@ contract('flux_token_crowdsale', function([_, wallet, investor_1, investor_2]) {
     /* Testing rate of Crowdsale contract */
     it('testing_for_rate', async function() { 
       const rate = await this.crowdsale.rate();
-      assert.equal(rate, 500);
+      assert.equal(rate, 4150);
     });
 
     /* Testing token of Crowdsale contract */
@@ -155,35 +158,35 @@ contract('flux_token_crowdsale', function([_, wallet, investor_1, investor_2]) {
     it('testing_default_stage', async function() { 
       const stage = await this.crowdsale.stage();
 
-      assert.equal(stage, this.PreICO);
+      assert.equal(stage, this.PreSale);
     });
 
     /* Testing inital rate of crowdsale stage */
     it('testing_rate_of_default_ico', async function() { 
       const value = await this.crowdsale.rate();
 
-      assert.equal(value, 500);
+      assert.equal(value, 4150);
     });
 
     /* Testing admin can change ICO stages */
     it('testing_admin_can_alter_ico_stage', async function() { 
-      await this.crowdsale.setCrowdsaleStage(this.MainICO, {from: _});
+      await this.crowdsale.setCrowdsaleStage(this.StageOne, {from: _});
       const stage = await this.crowdsale.stage();
       
-      assert.equal(stage, this.MainICO);
+      assert.equal(stage, this.StageOne);
     });
 
-    /* Testing change in rate after altering ico stage */
-    it('testing_change_in_rate', async function() {
-      await this.crowdsale.setCrowdsaleStage(this.MainICO, {from: _});
+    /* Testing rate alteration while changing crowd sale stage */
+    it('testing_change_in_rate_while_changing_crowdsale_stage', async function() { 
+      await this.crowdsale.setCrowdsaleStage(this.StageThree, {from: _});
       const value = await this.crowdsale.rate();
 
-      assert.equal(value, 250);
+      assert.equal(value, 3592);
     });
-
+    
     /* Testing non-admin can change ICO stages or not */
     it('testing_non_admin_alter_ICO_stages', async function() { 
-      await this.crowdsale.setCrowdsaleStage(this.MainICO, {from: investor_1}).should.be.rejectedWith("revert");
+      await this.crowdsale.setCrowdsaleStage(this.StageOne, {from: investor_1}).should.be.rejectedWith("revert");
     });
   });
 
