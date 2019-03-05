@@ -7,8 +7,8 @@ require('chai')
   .should()
 
 /* Importing contracts */
-const flux_token_crowdsale = artifacts.require('FluxTokenCrowdsale');
-const flux_token = artifacts.require('FluxToken');
+const slothee_token_crowdsale = artifacts.require('SlotheeTokenCrowdsale');
+const slothee_token = artifacts.require('SlotheeToken');
 
 // Accounts represent array of accounts created by ganache
 // Since its required an default account to deploy the contract
@@ -16,17 +16,17 @@ const flux_token = artifacts.require('FluxToken');
 // _ denotes default account and wallet holds address of 
 // second account which is used by Crowdsale contract
 // This array contatin all available accounts
-contract('flux_token_crowdsale', function([_, wallet, investor_1, investor_2]) {
+contract('slothee_token_crowdsale', function([_, wallet, investor_1, investor_2]) {
 
   beforeEach(async function() {
     // Token attribues for constructor
-    this.name = 'Flux Token';
-    this.symbol = 'FT';
+    this.name = 'Slothee Token';
+    this.symbol = 'SLT';
     // Ether has 18 decimal place ie. 1Ether = 10^18 wei
     // FluxToken has 18 decimal place ie. 1FT = 10^18 smallest denomination
     this.decimals = 18;
     // Deploying new instance of token
-    this.token = await flux_token.new(this.name, 
+    this.token = await slothee_token.new(this.name, 
                                       this.symbol,
                                       this.decimals);
     
@@ -56,7 +56,7 @@ contract('flux_token_crowdsale', function([_, wallet, investor_1, investor_2]) {
     // this.latest_block = web3.eth.getBlock("latest").timestamp;
     // Deploying new instance of Crowdsale contract
     // Passing deployed tokens as third parameter
-    this.crowdsale = await flux_token_crowdsale.new(this.rate, 
+    this.crowdsale = await slothee_token_crowdsale.new(this.rate, 
                                                 this.wallet, 
                                                 this.token.address,
                                                 this.cap);

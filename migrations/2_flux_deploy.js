@@ -1,7 +1,7 @@
-const flux_token = artifacts.require("FluxToken");
+const flux_token = artifacts.require("SlotheeToken");
   /* Dummy Token Parameter */ 
-  const name = "Flux Token";
-  const symbol = "FT";
+  const name = "Slothee Token";
+  const symbol = "SLT";
   const decimals = 18;
 
 module.exports = function(deployer) {

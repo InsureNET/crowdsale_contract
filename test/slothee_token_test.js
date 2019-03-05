@@ -1,16 +1,16 @@
 /* Utilising file */
-const flux_token = artifacts.require('FluxToken');
+const slothee_token = artifacts.require('SlotheeToken');
 
 /* A BDD/TDD assertion library */
 require('chai')
   .should()
 
-contract('flux_token', accounts => {
+contract('slothee_token', accounts => {
 
   /* Deploying new version of contract */
   beforeEach(async function() {
     // Passing arguments while deploying contract 
-    this.token = await flux_token.new('Flux Token', 'FT', 18);
+    this.token = await slothee_token.new('Slothee Token', 'SLT', 18);
   });
   
   /* Begin Assertion */
@@ -23,7 +23,7 @@ contract('flux_token', accounts => {
       // Checking if name is correct
       // assert.equal(token_name, 'Tree Token');
       // Alternate for above code line
-      token_name.should.equal('Flux Token');
+      token_name.should.equal('Slothee Token');
     });
 
 
@@ -31,7 +31,7 @@ contract('flux_token', accounts => {
     it('testing_for_correct_symbol', async function() { 
       const token_symbol = await this.token.symbol();
 
-      assert.equal(token_symbol, 'FT');
+      assert.equal(token_symbol, 'SLT');
     });
     
 

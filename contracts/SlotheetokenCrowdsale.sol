@@ -7,7 +7,7 @@ import "../openzeppelin-solidity/contracts/ownership/Ownable.sol";
 
 // Do not alter the order of the imported extensions
 // Got no idea why Linerization error pops out for changing order
-contract FluxTokenCrowdsale is Crowdsale, MintedCrowdsale, CappedCrowdsale, Ownable {
+contract SlotheeTokenCrowdsale is Crowdsale, MintedCrowdsale, CappedCrowdsale, Ownable {
   // Crowdsale contructor
   // Capped crowdsale constructor
   constructor(uint256 rate, address payable wallet, IERC20 token, uint256 cap) 
