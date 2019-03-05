@@ -73,7 +73,7 @@ Technical Paper: http://www.slothee.io/documents/Slothee_Technical_Paper.pdf
 5. Contract address:
 
 
-**Phase - One Sale **
+**Phase - One Sale**
 1. BasePrice: 
 2. Period:
 3. Start:
@@ -81,7 +81,7 @@ Technical Paper: http://www.slothee.io/documents/Slothee_Technical_Paper.pdf
 5. Contract address:
 
 
-**Phase - Two Sale **
+**Phase - Two Sale**
 1. BasePrice: 
 2. Period:
 3. Start:
@@ -89,7 +89,7 @@ Technical Paper: http://www.slothee.io/documents/Slothee_Technical_Paper.pdf
 5. Contract address:
 
 
-**Phase - Three Sale **
+**Phase - Three Sale**
 1. BasePrice: 
 2. Period:
 3. Start:
@@ -97,7 +97,7 @@ Technical Paper: http://www.slothee.io/documents/Slothee_Technical_Paper.pdf
 5. Contract address:
 
 
-**Phase - Four Sale **
+**Phase - Four Sale**
 1. BasePrice: 
 2. Period: 
 3. Start:
@@ -106,5 +106,13 @@ Technical Paper: http://www.slothee.io/documents/Slothee_Technical_Paper.pdf
 
 ---
 
+
+**Wallets which can hold ERC20 Token**
+myetherWallet
+Ethereum  Wallet
+Mist
+Parity
+
+--
 
 Telegram Mailing Channel: https://t.me/slothee

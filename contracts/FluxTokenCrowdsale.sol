@@ -21,7 +21,9 @@ contract FluxTokenCrowdsale is Crowdsale, MintedCrowdsale, CappedCrowdsale, Owna
    // Crowdsale stage
    CrowdsaleStages public stage = CrowdsaleStages.PreSale;
 
-   /* Only allow admin to chage the crowdsale stages */
+   /* Only allow admin to chage the crowdsale stages
+    * This change in stage is initiated manually by admin
+    */   
    function setCrowdsaleStage(uint stages) public onlyOwner {
      // Presale
      if (uint(CrowdsaleStages.PreSale) == stages) {
