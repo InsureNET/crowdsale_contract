@@ -5,11 +5,9 @@
 OpenZapplin library is used to maintain reliability and consistency of code. The token and crowdsale contract is build using various thresholding features.
 The encompassed details are listed on the go.
 
-```
 Reference Link: http://www.slothee.io/
 Light Paper: http://www.slothee.io/documents/Slothee_Light_Paper.pdf
 Technical Paper: http://www.slothee.io/documents/Slothee_Technical_Paper.pdf
-```
 
 ---
 
@@ -56,21 +54,20 @@ Technical Paper: http://www.slothee.io/documents/Slothee_Technical_Paper.pdf
 ```
   Recommended GAS Units: 250 000
   Recommended GAS Price: 21 Wei
-```
   
   * Wei is the smallest denomination of Ether
-
+```
 ---
 
 
 **Token Sharing Quota**
 
-1. Sales                     : 50 %    
-2. Teams & Others            : 20 %
-3. Strategic partners        ; 10 %
-4. Legal                     : 5 %
-5. Bounty                    : 5 %
-6. Sales Bonus               : 10 %
+* Sales                     : 50 %    
+* Teams & Others            : 20 %
+* Strategic partners        ; 10 %
+* Legal                     : 5 %
+* Bounty                    : 5 %
+* Sales Bonus               : 10 %
 
 
 ---
