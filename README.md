@@ -5,8 +5,13 @@
 OpenZapplin library is used to maintain reliability and consistency of code. The token and crowdsale contract is build using various thresholding features.
 The encompassed details are listed on the go.
 
+
 Reference Link: http://www.slothee.io/
+
+
 Light Paper: http://www.slothee.io/documents/Slothee_Light_Paper.pdf
+
+
 Technical Paper: http://www.slothee.io/documents/Slothee_Technical_Paper.pdf
 
 ---
@@ -117,11 +122,13 @@ Technical Paper: http://www.slothee.io/documents/Slothee_Technical_Paper.pdf
 
 
 **Wallets which can hold ERC20 Token**
-1.myetherWallet
-2.Ethereum  Wallet
-3.Mist
-4.Parity
+* myetherWallet
+* Ethereum  Wallet
+* Mist
+* Parity
 
---
+---
 
 Telegram Mailing Channel: https://t.me/slothee
+
+---
