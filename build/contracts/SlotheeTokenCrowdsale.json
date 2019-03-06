@@ -4465,7 +4465,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.2",
-  "updatedAt": "2019-03-05T14:29:47.236Z",
+  "updatedAt": "2019-03-06T08:10:50.688Z",
   "devdoc": {
     "methods": {
       "buyTokens(address)": {
