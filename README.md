@@ -122,6 +122,7 @@ Technical Paper: http://www.slothee.io/documents/Slothee_Technical_Paper.pdf
 
 
 **Wallets which can hold ERC20 Token**
+
 * myetherWallet
 * Ethereum  Wallet
 * Mist
