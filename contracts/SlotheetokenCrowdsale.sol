@@ -4,11 +4,12 @@ import "../openzeppelin-solidity/contracts/crowdsale/Crowdsale.sol";
 import "../openzeppelin-solidity/contracts/crowdsale/emission/MintedCrowdsale.sol";
 import "../openzeppelin-solidity/contracts/crowdsale/validation/CappedCrowdsale.sol";
 import "../openzeppelin-solidity/contracts/crowdsale/distribution/RefundableCrowdsale.sol";
+import "../openzeppelin-solidity/contracts/crowdsale/validation/PausableCrowdsale.sol";
 import "../openzeppelin-solidity/contracts/ownership/Ownable.sol";
 
 // Do not alter the order of the imported extensions
 // Got no idea why Linerization error pops out for changing order
-contract SlotheeTokenCrowdsale is Crowdsale, MintedCrowdsale, CappedCrowdsale, RefundableCrowdsale, Ownable {
+contract SlotheeTokenCrowdsale is Crowdsale, MintedCrowdsale, CappedCrowdsale, RefundableCrowdsale, PausableCrowdsale,  Ownable {
   // Crowdsale contructor
   // Capped crowdsale constructor
   constructor(uint256 rate, address payable wallet, IERC20 token, uint256 cap, uint256 goal) 
