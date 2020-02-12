@@ -25,8 +25,6 @@ OpenZapplin library is used to maintain reliability and consistency of code. The
 
 > Technical Paper: http://www.slothee.io/documents/Slothee_Technical_Paper.pdf
 
----
-
 
 **Token Narration**
 
