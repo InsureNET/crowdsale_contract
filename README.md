@@ -6,13 +6,13 @@ OpenZapplin library is used to maintain reliability and consistency of code. The
 The encompassed details are listed on the go.
 
 
-Reference Link: http://www.slothee.io/
+> Reference Link: http://www.slothee.io/
 
 
-Light Paper: http://www.slothee.io/documents/Slothee_Light_Paper.pdf
+> Light Paper: http://www.slothee.io/documents/Slothee_Light_Paper.pdf
 
 
-Technical Paper: http://www.slothee.io/documents/Slothee_Technical_Paper.pdf
+> Technical Paper: http://www.slothee.io/documents/Slothee_Technical_Paper.pdf
 
 ---
 
@@ -35,8 +35,8 @@ Technical Paper: http://www.slothee.io/documents/Slothee_Technical_Paper.pdf
 
 1. Capping limit
 2. Timing barrier
-3. Whitelist agent  (Feature build in progress...)
-4. Refundable operation (Feature build in progress...)
+3. Whitelist agent
+4. Refundable operation
 5. Crowdsale phases
 6. Finalizing rationale
 
@@ -52,16 +52,6 @@ Technical Paper: http://www.slothee.io/documents/Slothee_Technical_Paper.pdf
 4. Token issued for sale: 500 000 000 SLT
 
 
----
-
-**Buying Tokens**
-  Investor may buy token to by sending Ether ETH to the corresponding Crowdsale contract address.
-```
-  Recommended GAS Units: 250 000
-  Recommended GAS Price: 21 Wei
-  
-  * Wei is the smallest denomination of Ether
-```
 ---
 
 
