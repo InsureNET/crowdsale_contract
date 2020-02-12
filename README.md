@@ -1,16 +1,27 @@
-## Slothee Token Generation
+<div align="center">
+<p><img width="200" height="200" src="assets/logo/logo.jpeg"></p>
+<h2><b>CROWDSALE CONTRACT</b></h2>
+<h4></h4>
+
+![Solidity](https://img.shields.io/badge/solidity-0.5.2-black?style=flat-square)
+![ERC-20](https://img.shields.io/badge/ERC-20-blue?style=flat-square)
+![GNUv3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)
+![OpenZeppeline](https://img.shields.io/badge/OpenZeppeline-Test-red?style=flat-square)
+![made-with-truffle](https://img.shields.io/badge/made%20using-truffle-blueviolet?style=flat-square)
+
+<h6><a href="https://etherscan.io/token/0x0eF997BcCE28c12D450D6A60021A79F617845102">0x0eF997BcCE28c12D450D6A60021A79F617845102</a></h6>
+</div>
+<hr>
 
 
-  This repository contain smart contract code for minting token and Crowdsale. This contract is rock tested using the test code found in the test directory.
-OpenZapplin library is used to maintain reliability and consistency of code. The token and crowdsale contract is build using various thresholding features.
-The encompassed details are listed on the go.
+  Smart contract code for minting token and handling Crowdsale. This contract is rock tested using the test code found in the test directory.
+  
+OpenZapplin library is used to maintain reliability and consistency of code. The token and crowdsale contract is build using various thresholding features. The encompassed details are listed on the go.
 
 
 > Reference Link: http://www.slothee.io/
 
-
 > Light Paper: http://www.slothee.io/documents/Slothee_Light_Paper.pdf
-
 
 > Technical Paper: http://www.slothee.io/documents/Slothee_Technical_Paper.pdf
 
@@ -68,49 +79,6 @@ The encompassed details are listed on the go.
 ---
 
 
-##Portrayal of Phases involved in Crowdsale
-**Pre-Sale**
-1. BasePrice: 
-2. Period:
-3. Start:
-4. Bonus percent:
-5. Contract address:
-
-
-**Phase - One Sale**
-1. BasePrice: 
-2. Period:
-3. Start:
-4. Bonus percent:
-5. Contract address:
-
-
-**Phase - Two Sale**
-1. BasePrice: 
-2. Period:
-3. Start:
-4. Bonus percent:
-5. Contract address:
-
-
-**Phase - Three Sale**
-1. BasePrice: 
-2. Period:
-3. Start:
-4. Bonus percent:
-5. Contract address:
-
-
-**Phase - Four Sale**
-1. BasePrice: 
-2. Period: 
-3. Start:
-4. Bonus percent:
-5. Contract address:
-
----
-
-
 **Wallets which can hold ERC20 Token**
 
 * myetherWallet
@@ -121,5 +89,3 @@ The encompassed details are listed on the go.
 ---
 
 Telegram Mailing Channel: https://t.me/slothee
-
----
